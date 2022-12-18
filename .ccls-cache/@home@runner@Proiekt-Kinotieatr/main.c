@@ -7,11 +7,11 @@
 
 typedef struct Film {      //создание структуры фильма
   int index;
-  char name[100];         // название фильма
-  char year[100];          // год выпуска
-  char country[100];      //  название страны/стран производителя
-  char genre[100];        //  название жанра
-  char rating[100];         // рейтинг 
+  char name[80];         // название фильма
+  char year[8];          // год выпуска
+  char country[40];      //  название страны/стран производителя
+  char genre[45];        //  название жанра
+  char rating[5];         // рейтинг 
 } film;                   // переименование
 
 typedef struct Knot { // структура узел (двусвязный список фильмов)
@@ -88,23 +88,22 @@ int main(void) {
   knot* list;
   int index = 1;
   a.index = index;
-  fgets(a.name, 100, open_film);
-  fgets(a.year, 100, open_film);  
-  fgets(a.country, 100, open_film);  
-  fgets(a.genre, 100, open_film);  
-  fgets(a.rating, 100, open_film);
+  fgets(a.name, 80, open_film);
+  fgets(a.year, 8, open_film);  
+  fgets(a.country, 40, open_film);  
+  fgets(a.genre, 45, open_film);  
+  fgets(a.rating, 5, open_film);
   list = init_film(a);
   while (!feof(open_film)){
     film a;
     ++index;
     a.index = index;
-    fgets(a.name, 100, open_film);
-    fgets(a.year, 100, open_film);  
-    fgets(a.country, 100, open_film);  
-    fgets(a.genre, 100, open_film);  
-    fgets(a.rating, 100, open_film);
+    fgets(a.name, 80, open_film);
+    fgets(a.year, 8, open_film);  
+    fgets(a.country, 40, open_film);  
+    fgets(a.genre, 45, open_film);  
+    fgets(a.rating, 5, open_film);
     add(list, a);
   }
-  
   print(list);
 }
